@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "DeviceJni"
 include ':app'
+include ':device'
