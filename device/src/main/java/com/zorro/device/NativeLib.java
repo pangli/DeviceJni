@@ -1,5 +1,8 @@
 package com.zorro.device;
 
+import androidx.annotation.Keep;
+
+@Keep
 public class NativeLib {
 
     // Used to load the 'device' library on application startup.
