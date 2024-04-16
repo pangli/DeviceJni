@@ -1,6 +1,7 @@
 package com.zorro.device;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         TextView textView = findViewById(R.id.textView);
+        Log.e("TAG", "onCreate: " + System.currentTimeMillis());
         textView.setText(new NativeLib().call("ro.boot.vbmeta.digest", ""));
+        Log.e("TAG", "onCreate: " + System.currentTimeMillis());
     }
 }
