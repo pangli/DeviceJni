@@ -11,5 +11,5 @@ public class NativeLib {
      * A native method that is implemented by the 'device' native library,
      * which is packaged with this application.
      */
-    public native String stringFromJNI();
+    public native String call(String key, String defaultValue);
 }

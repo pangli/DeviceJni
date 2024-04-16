@@ -26,12 +26,28 @@ project("device")
 # used in the AndroidManifest.xml file.
 add_library(${CMAKE_PROJECT_NAME} SHARED
         # List C/C++ source files with relative paths to this CMakeLists.txt.
+        utils.cpp
         device.cpp)
+
+#Zorro
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror")
+find_library(
+        log-lib
+        log)
+
+if (CMAKE_BUILD_TYPE MATCHES Debug)
+    # Debug build settings
+    add_definitions(-DDEBUG)
+elseif (CMAKE_BUILD_TYPE MATCHES Release)
+    # Release build settings
+    add_definitions(-DNDEBUG)
+endif ()
 
 # Specifies libraries CMake should link to your target library. You
 # can link libraries from various origins, such as libraries defined in this
 # build script, prebuilt third-party libraries, or Android system libraries.
 target_link_libraries(${CMAKE_PROJECT_NAME}
         # List libraries link to the target library
+        ${log-lib}
         android
         log)

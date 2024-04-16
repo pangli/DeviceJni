@@ -22,6 +22,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         TextView textView = findViewById(R.id.textView);
-        textView.setText(new NativeLib().stringFromJNI());
+        textView.setText(new NativeLib().call("ro.boot.vbmeta.digest", ""));
     }
 }
